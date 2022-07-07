@@ -1,0 +1,58 @@
+<div class="container">
+
+    <div class="row"> 
+    <div class="col-md-6">
+    <div class="card">
+    <div class="text-center">
+     <h1>Sign Up</h1>
+    
+    <h6>Register Yourself!!</h6>
+    
+    </div>
+     <form >
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+
+        <div class="mb-3"> 
+            <label for="exampleInputPassword1" class="form-label">Full Name</label>
+             <input formControlName="fullname" type="text" class="form-control" id="exampleInputPassword1" placeholder="Full Name" ><br>
+             <span class="text-danger" *ngIf="signupForm.controls['fullname'].dirty && signupForm.hasError('required','fullname')">*Full name is required</span>
+            </div>
+            <div class="mb-3"> 
+                <label for="exampleInputPassword1" class="form-label">Mobile Number</label>
+                 <input  formControlName="mobile" type="text" class="form-control" id="exampleInputPassword1" placeholder="mobile number"><br>
+                 <span class="text-danger" *ngIf="signupForm.controls['mobile'].dirty && signupForm.hasError('required','mobile')">*mobilenumber is required</span>
+                </div>
+    
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label"> Email address</label> 
+    <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email address">
+     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div><br>
+     <span class="text-danger" *ngIf="signupForm.controls['email'].dirty && signupForm.hasError('required','email')">*email is required</span>
+    
+    </div>
+    
+    <div class="mb-3"> 
+    
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    
+     <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="password"><br>
+     <span class="text-danger" *ngIf="signupForm.controls['password'].dirty && signupForm.hasError('required','password')">*password is required</span>
+    </div>
+    
+    <button type="submit" [disabled]="!signupForm.valid" (click)="signup"  class="btn btn-primary mb-3">Sign Up</button>
+    
+    </form>
+
+    <a style="color:#ff0000;margin-top: 10px;" routerLink="/login"> Already Register? Click to Login!!</a>
+    
+    </form>
+    
+    </div>
+    
+    
+    
+     </div>
+    
+    </div>
+    
+    </div>
